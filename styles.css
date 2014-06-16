@@ -4,8 +4,12 @@ header img{
 		margin-right:auto;
 		}
 
+nav {
+		text-align: center;
+		}
+		
 nav ul {
-		display: block;
+		display: inline-block;
 		margin-left:auto;
 		margin-right:auto;
 		}
@@ -37,9 +41,10 @@ nav a:hover {
 #left-sidebar {
 		float: left;
 		width: 23%;
-		height: 30em;
+		min-height: 35em;
 		overflow: auto;
 		background-color: #EEEEEE;
+		border-radius: 5px;
 		}
 
 #main {
@@ -47,20 +52,26 @@ nav a:hover {
 		width: 50%;
 		padding-left: 1%;
 		padding-right: 1%;
-		height: 30em;
+		min-height: 35em;
 		overflow: auto;
+		border: 1px #EEEEEE solid;
+		border-radius: 5px;
 		}
 		
 #right-sidebar {
 		float: left;
-		width: 24%;
-		padding-left: 1%
-		height: 30em;
+		width: 23%;
+		padding-left: 1%;
+		min-height: 35em;
 		overflow: auto;
 		background-color: #EEEEEE;
+		border-radius: 5px;
 		}
 		
 footer {
+		float: left;
+		width: 100%;
 		text-align: center;
+		
 		}
 	
