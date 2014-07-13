@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Basic League  Table</title>
+  <meta name="description" content="Fantasy Football Radar">
+  <meta name="author" content="FFR">
+
+  <link rel="stylesheet" type= "text/css" href="styles.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+	<h1>Premier League Table</h1>
+	
+		<?php
+			try {
+				$con= new PDO('mysql:host=localhost;dbname=ffr', "ffruser", "geotech76");
+				$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$query = 'SELECT * FROM basicTable';
+
+				//first pass just gets the column names
+				print "<table> \n";
+				$result = $con->query($query);
+				//return only the first row (we only need field names)
+				$row = $result->fetch(PDO::FETCH_ASSOC);
+				print "<thead> \n";
+				print "<tr> \n";
+				foreach ($row as $field => $value){
+					print " <th>$field</th> \n";
+				} // end foreach
+				print " </tr> \n";
+				print "</thead> \n";
+				//second query gets the data
+				print "<tbody>";
+				$data = $con->query($query);
+				$data->setFetchMode(PDO::FETCH_ASSOC);
+				foreach($data as $row){
+					print " <tr> \n";
+					foreach ($row as $name=>$value){
+						print " <td>$value</td> \n";
+					} // end field loop
+					print " </tr> \n";
+				} // end record loop
+				print "</tbody> \n";
+				print "</table> \n";
+			} catch(PDOException $e) {
+			echo 'ERROR: ' . $e->getMessage();
+			}
+		?>
+	
+
+</body>
+</html>

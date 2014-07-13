@@ -1,3 +1,7 @@
+body {
+		font-family: Arial,sans-serif;
+	}
+
 header img{
 		display: block;
 		margin-left:auto;
@@ -74,4 +78,29 @@ footer {
 		text-align: center;
 		
 		}
-	
+table {
+		border: 2px solid gray;
+		border-collapse: separate;
+		width: 100%;
+		font-size: .8em;
+		vertical-align: center;
+		text-align: center;
+		padding: 4px;
+	}
+table td th{
+
+	}
+table thead {
+		background-color: gray;
+		color: white;
+	}
+table tbody tr:nth-child(odd) {
+		background-color: white;
+	}
+table tbody tr:nth-child(even) {
+		background-color: #EEEEEE;
+	}
+table tbody td:nth-child(1) {
+		font-weight: bold;
+		width: 25%;
+		}
