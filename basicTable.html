@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<h1>Premier League Table</h1>
+	<h4>Premier League Table</h4>
 	
 		<?php
 			try {
@@ -24,28 +24,31 @@
 				$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$query = 'SELECT * FROM basicTable';
 
-				//first pass just gets the column names
+				//Create Header Row
 				print "<table> \n";
-				$result = $con->query($query);
-				//return only the first row (we only need field names)
-				$row = $result->fetch(PDO::FETCH_ASSOC);
 				print "<thead> \n";
 				print "<tr> \n";
-				foreach ($row as $field => $value){
-					print " <th>$field</th> \n";
-				} // end foreach
+				print "<th>Pos</th>";
+				print "<th>Team</th>";
+				print "<th>P</th>";
+				print "<th>GD</th>";
+				print "<th>Pts</th>";
 				print " </tr> \n";
 				print "</thead> \n";
-				//second query gets the data
+				//query gets the data
 				print "<tbody>";
 				$data = $con->query($query);
 				$data->setFetchMode(PDO::FETCH_ASSOC);
+				$counter=1;
 				foreach($data as $row){
 					print " <tr> \n";
-					foreach ($row as $name=>$value){
-						print " <td>$value</td> \n";
-					} // end field loop
+					print "<td>" . $counter . "</td>";
+					print"<td>" . $row['Team'] . "</td>";
+					print"<td>" . $row['P'] . "</td>";
+					print"<td>" . $row['GD'] . "</td>";
+					print"<td>" . $row['Pts'] . "</td>";
 					print " </tr> \n";
+					$counter++;
 				} // end record loop
 				print "</tbody> \n";
 				print "</table> \n";

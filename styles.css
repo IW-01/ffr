@@ -1,6 +1,10 @@
 body {
 		font-family: Arial,sans-serif;
 	}
+	
+h4 {
+	text-align: center;
+	}
 
 header img{
 		display: block;
@@ -44,7 +48,7 @@ nav a:hover {
 		
 #left-sidebar {
 		float: left;
-		width: 23%;
+		width: 18%;
 		min-height: 35em;
 		overflow: auto;
 		background-color: #EEEEEE;
@@ -53,7 +57,7 @@ nav a:hover {
 
 #main {
 		float: left;
-		width: 50%;
+		width: 61%;
 		padding-left: 1%;
 		padding-right: 1%;
 		min-height: 35em;
@@ -64,8 +68,7 @@ nav a:hover {
 		
 #right-sidebar {
 		float: left;
-		width: 23%;
-		padding-left: 1%;
+		width: 18%;
 		min-height: 35em;
 		overflow: auto;
 		background-color: #EEEEEE;
@@ -80,15 +83,15 @@ footer {
 		}
 table {
 		border: 2px solid gray;
-		border-collapse: separate;
+		border-collapse: collapse;
 		width: 100%;
 		font-size: .8em;
 		vertical-align: center;
 		text-align: center;
 		padding: 4px;
 	}
-table td th{
-
+table body td{
+		width: 12%;
 	}
 table thead {
 		background-color: gray;
@@ -100,7 +103,17 @@ table tbody tr:nth-child(odd) {
 table tbody tr:nth-child(even) {
 		background-color: #EEEEEE;
 	}
-table tbody td:nth-child(1) {
+table tbody td:nth-child(2) {
 		font-weight: bold;
-		width: 25%;
+		width: 40%;
+		text-align: left;
 		}
+table tbody tr:nth-child(4) {
+		border-bottom: 1px dashed black;
+	}
+table tbody tr:nth-child(5) {
+		border-bottom: 1px dashed black;
+	}
+table tbody tr:nth-child(17) {
+		border-bottom: 1px dashed black;
+	}
