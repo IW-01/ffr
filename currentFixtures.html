@@ -1,0 +1,122 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Current Gameweek Fixtures</title>
+  <meta name="description" content="Fantasy Football Radar">
+  <meta name="author" content="FFR">
+
+  <link rel="stylesheet" type= "text/css" href="styles.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+	
+		<?php
+			try {			
+				print '<h3>Fixtures and Results</h3>';
+				
+				// get current gameweek
+				$con= new PDO('mysql:host=localhost;dbname=ffr', "ffruser", "geotech76");
+				$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$query1 = 'SELECT DISTINCT gameWeekID FROM 1415_gameweeks WHERE DATE_SUB(NOW(), INTERVAL 9 HOUR) between gameWeekStart and gameWeekEnd';		
+				$data1 = $con->query($query1);
+				$data1->setFetchMode(PDO::FETCH_ASSOC);
+				foreach($data1 as $row){
+					}
+				$curGW = $row['gameWeekID'];
+				//$curGW =38;//delete later for testingf only *****
+				print "<h4>Gameweek " . $curGW . "</h4> \n";
+				
+				// print current gameweek results
+				$query2 = "SELECT * FROM fixtureView_1415 WHERE GW = " . $curGW . " AND status != 'NS' ";
+				$data2 = $con->query($query2);
+				$data2->setFetchMode(PDO::FETCH_ASSOC);
+				$fixDate = '1960-01-01';
+				print "<table> \n";
+				print "<tbody> \n";
+				foreach($data2 as $row){
+					if ($row['date'] <> $fixDate) {
+						print "<tr class='fixDateRow'> \n";
+						print "<td class='fixDateCell' colspan='6'>" . $row['date'] . "</td> \n";
+						print "</tr> \n";
+						$fixDate = $row['date'];
+					}
+					print " <tr> \n";
+					print"<td class='teamCell'>" . $row['home'] . "</td>";
+					print "<td class='scoreCell'>" . $row['hScore'] . "</td> \n";
+					print"<td>  v  </td>";
+					print "<td class='scoreCell'>" . $row['aScore'] . "</td> \n";
+					print"<td class='teamCell'>" . $row['away'] . "</td>";
+					print"<td>" . $row['status'] . "</td>";
+					print " </tr> \n";
+				} // end record loop
+
+
+
+				
+				// print current gameweek fixtures
+				$query3 = "SELECT * FROM fixtureView_1415 WHERE GW = " . $curGW . " AND status = 'NS' ";
+				$data3 = $con->query($query3);
+				$data3->setFetchMode(PDO::FETCH_ASSOC);
+				foreach($data3 as $row){
+					if ($row['date'] <> $fixDate) {
+						print "<tr class='fixDateRow'> \n";
+						print "<td class='fixDateCell' colspan='6'>" . $row['date'] . "</td> \n";
+						print "</tr> \n";
+						$fixDate = $row['date'];
+					}
+					print " <tr> \n";
+					print"<td class='teamCell'>" . $row['home'] . "</td>";
+					print "<td>  </td> \n";
+					print"<td>  v  </td>";
+					print "<td>  </td> \n";
+					print"<td class='teamCell'>" . $row['away'] . "</td>";
+					print"<td>" . $row['time'] . "</td>";
+					print " </tr> \n";
+				} // end record loop
+				print "</tbody> \n";
+				print "</table> \n"; 
+
+				
+				// print next gameweek fixtures
+				if ($curGW < 38) {
+					print '<h4>Gameweek ' . ($curGW + 1) . '</h4>';
+					$query4 = "SELECT * FROM fixtureView_1415 WHERE GW = " . ($curGW + 1);
+					$data4 = $con->query($query4);
+					$data4->setFetchMode(PDO::FETCH_ASSOC);
+					print "<table> \n";
+					print "<tbody> \n";
+					foreach($data4 as $row){
+						if ($row['date'] <> $fixDate) {
+							print "<tr class='fixDateRow'> \n";
+							print "<td class='fixDateCell' colspan='6'>" . $row['date'] . "</td> \n";
+							print "</tr> \n";
+							$fixDate = $row['date'];
+						}
+						print " <tr> \n";
+						print"<td class='teamCell'>" . $row['home'] . "</td>";
+						print "<td>  </td> \n";
+						print"<td>  v  </td>";
+						print "<td>  </td> \n";
+						print"<td class='teamCell'>" . $row['away'] . "</td>";
+						print"<td>" . $row['time'] . "</td>";
+						print " </tr> \n";
+					} // end record loop
+					print "</tbody> \n";
+					print "</table> \n"; 
+				} // end 38 week condition
+			} catch(PDOException $e) {
+			echo 'ERROR: ' . $e->getMessage();
+			}
+		?>
+	
+
+</body>
+</html>

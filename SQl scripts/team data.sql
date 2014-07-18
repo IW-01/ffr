@@ -11,15 +11,15 @@ INSERT into teams (teamAbb, teamName, teamFounded, teamGroundID, managerID) valu
 ("HUL", "Hull", 1904, 07, 07),
 ("LEI", "Leicester", 1884, 08, 08),
 ("LIV", "Liverpool", 1892, 09, 09),
-("MCI", "Manchester City", 1880, 10, 10),
-("MUN", "Manchester United", 1878, 11, 11),
+("MCI", "Man City", 1880, 10, 10),
+("MUN", "Man United", 1878, 11, 11),
 ("NEW", "Newcastle", 1892, 12, 12),
 ("QPR", "QPR", 1882, 13, 13),
 ("SOU", "Southampton", 1885, 14, 14),
+("TOT", "Tottenham", 1882, 18, 16),
 ("STK", "Stoke", 1863, 15, 15),
-("SUN", "Sunderland", 1879, 16, 16),
-("SWA", "Swansea", 1912, 17, 17),
-("TOT", "Tottenham", 1882, 18, 18),
+("SUN", "Sunderland", 1879, 16, 17),
+("SWA", "Swansea", 1912, 17, 18),
 ("WBA", "West Brom", 1878, 19, 19),
 ("WHU", "West Ham", 1895, 20, 20);
 
@@ -39,10 +39,10 @@ INSERT into managers (firstName, lastName, birthDate) values
 ("Alan", "Pardew", "1961-07-18"),
 ("Harry", "Redknapp", "1947-03-02"),
 ("Ronald", "Koeman", "1963-03-21"),
+("Mauricio", "Pochettino", "1972-03-02"),
 ("Mark", "Hughes", "1963-11-01"),
 ("Gus", "Poyet", "1967-11-15"),
 ("Garry", "Monk", "1979-03-06"),
-("Mauricio", "Pochettino", "1972-03-02"),
 ("Alan", "Irvine", "1958-07-12"),
 ("Sam", "Allardyce", "1954-10-19");
 
@@ -61,10 +61,10 @@ INSERT into grounds (groundName, groundCapacity, groundLat, groundLong) values
 ("St James' Park", 52405, 500, 54°58′32″N, 1°37′18″W),
 ("Lofus Road", 18439, 51°30′33″N, 0°13′56″W),
 ("St Mary's Stadium", 32589, 50°54′21″N, 1°23′28″W),
+("White Hart Lane", 36284, 51°36′12″N, 0°03′57″W),
 ("Britannia Stadium", 27740, 52°59′18″N, 2°10′32″W),
 ("Stadium of Light", 48707, 54°54′52″N, 1°23′18″W),
 ("Liberty Stadium", 20750, 51°38′34″N, 3°56′5″W),
-("White Hart Lane", 36284, 51°36′12″N, 0°03′57″W),
 ("The Hawthorns", 27000, 52°30′33″N, 1°57′50″W),
 ("The Boleyn Ground", 35016, 51°31′55″N, 0°2′22″E);
 
@@ -83,10 +83,10 @@ INSERT into grounds (groundName, groundCapacity) values
 ("St James' Park", 52405),
 ("Lofus Road", 18439),
 ("St Mary's Stadium", 32589),
+("White Hart Lane", 36284),
 ("Britannia Stadium", 27740),
 ("Stadium of Light", 48707),
 ("Liberty Stadium", 20750),
-("White Hart Lane", 36284),
 ("The Hawthorns", 27000),
 ("The Boleyn Ground", 35016);
 
@@ -134,6 +134,47 @@ INSERT INTO 1415_fixtures (fixtureDate, fixtureKO, fixtureGameWeekID, homeTeamID
 ("2014-09-13", "15:00:00", 4, 16, 18, 16, NULL, NULL, "NS", NULL),
 ("2014-09-13", "15:00:00", 4, 19, 6, 19, NULL, NULL, "NS", NULL)*/;
 
+INSERT into 1415_gameweeks values
+(1, "2014-07-15", "2014-08-18"),
+(2, "2014-08-19", "2014-08-25"),
+(3, "2014-08-26", "2014-09-02"),
+(4, "2014-09-03", "2014-09-15"),
+(5, "2015-07-16", "2015-08-18"),
+(6, "2015-07-16", "2015-08-18"),
+(7, "2015-07-16", "2015-08-18"),
+(8, "2015-07-16", "2015-08-18"),
+(9, "2015-07-16", "2015-08-18"),
+(10, "2015-07-16", "2015-08-18"),
+(11, "2015-07-16", "2015-08-18"),
+(12, "2015-07-16", "2015-08-18"),
+(13, "2015-07-16", "2015-08-18"),
+(14, "2015-07-16", "2015-08-18"),
+(15, "2015-07-16", "2015-08-18"),
+(16, "2015-07-16", "2015-08-18"),
+(17, "2015-07-16", "2015-08-18"),
+(18, "2015-07-16", "2015-08-18"),
+(19, "2015-07-16", "2015-08-18"),
+(20, "2015-07-16", "2015-08-18"),
+(21, "2015-07-16", "2015-08-18"),
+(22, "2015-07-16", "2015-08-18"),
+(23, "2015-07-16", "2015-08-18"),
+(24, "2015-07-16", "2015-08-18"),
+(25, "2015-07-16", "2015-08-18"),
+(26, "2015-07-16", "2015-08-18"),
+(27, "2015-07-16", "2015-08-18"),
+(28, "2015-07-16", "2015-08-18"),
+(29, "2015-07-16", "2015-08-18"),
+(30, "2015-07-16", "2015-08-18"),
+(31, "2015-07-16", "2015-08-18"),
+(32, "2015-07-16", "2015-08-18"),
+(33, "2015-07-16", "2015-08-18"),
+(34, "2015-07-16", "2015-08-18"),
+(35, "2015-07-16", "2015-08-18"),
+(36, "2015-07-16", "2015-08-18"),
+(37, "2015-07-16", "2015-08-18"),
+(38, "2015-07-16", "2015-08-18");
+
+
 SHOW CREATE TABLE teams;
 TRUNCATE TABLE 1415_fixtures;
 SELECT * FROM teams;
@@ -144,3 +185,4 @@ DROP TABLE 1415_fixtures;
 
 SELECT * FROM basicTable;
 SELECT * FROM fullTable;
+SELECT * FROM fixtureView_1415

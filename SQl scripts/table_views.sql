@@ -120,18 +120,21 @@ CREATE VIEW fullTable AS
 ;
 
 CREATE VIEW basicTable AS
-	SELECT team
-			, SUM(played) as P
-			, SUM(hwin) + SUM(awin) as W
-			, SUM(hdraw) + SUM(adraw) as D
-			, SUM(hloss) + SUM(aloss) as L
-			, SUM(hff) + SUM(aff) as F
-			, SUM(haa) + sum(aaa) as A
-			, (SUM(hff)+SUM(aff))-(SUM(aaa)+SUM(haa)) as GD
-			, SUM(pt) as Pts
+	SELECT t.teamAbb as T
+			,t.teamName as Team
+			, SUM(h.played) as P
+			, SUM(h.hwin) + SUM(h.awin) as W
+			, SUM(h.hdraw) + SUM(h.adraw) as D
+			, SUM(h.hloss) + SUM(h.aloss) as L
+			, SUM(h.hff) + SUM(h.aff) as F
+			, SUM(h.haa) + sum(h.aaa) as A
+			, (SUM(h.hff)+SUM(h.aff))-(SUM(h.aaa)+SUM(h.haa)) as GD
+			, SUM(h.pt) as Pts
 			
-	FROM homeAwayStats
+	FROM homeAwayStats as h JOIN teams as t
+	ON h.team = t.teamName
 
-	GROUP BY team
-	ORDER BY Pts DESC, GD DESC, F DESC, team
+	GROUP BY h.team
+	ORDER BY Pts DESC, GD DESC, F DESC, h.team
 ;
+

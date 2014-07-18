@@ -2,9 +2,13 @@ body {
 		font-family: Arial,sans-serif;
 	}
 	
-h4 {
+h3, h4 {
 	text-align: center;
 	}
+
+h5 {
+	text-align: center;
+	}	
 
 header img{
 		display: block;
@@ -84,6 +88,7 @@ footer {
 table {
 		border: 2px solid gray;
 		border-collapse: collapse;
+		border-radius: 5px;
 		width: 100%;
 		font-size: .8em;
 		vertical-align: center;
@@ -103,17 +108,32 @@ table tbody tr:nth-child(odd) {
 table tbody tr:nth-child(even) {
 		background-color: #EEEEEE;
 	}
-table tbody td:nth-child(2) {
+.leagueTable tbody td:nth-child(2) {
 		font-weight: bold;
 		width: 40%;
 		text-align: left;
 		}
-table tbody tr:nth-child(4) {
+.leagueTable tbody tr:nth-child(4) {
 		border-bottom: 1px dashed black;
 	}
-table tbody tr:nth-child(5) {
+.leagueTable tbody tr:nth-child(5) {
 		border-bottom: 1px dashed black;
 	}
-table tbody tr:nth-child(17) {
+.leagueTable tbody tr:nth-child(17) {
 		border-bottom: 1px dashed black;
 	}
+.fixDateCell {
+		font-weight: bold;
+		border: 1px solid black;
+		padding: 5px;
+		background-color: gray;
+		color: white;
+		}
+.teamCell {
+		font-weight: bold;
+		width: 40%;
+		padding: 8px;
+		}
+.scoreCell {
+		width: 7%;
+		}
